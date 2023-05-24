@@ -18,7 +18,12 @@ public class PersonController {
 
     @GetMapping()
     public List<PersonResponse> getPersons(){
-        return personService.getPersons();
+        List<PersonResponse> persons = personService.getPersons();
+        if(!persons.isEmpty()){
+            System.out.println("pessoa numero 1 = " + persons.get(0).getName());
+        }
+
+        return persons;
     }
 
     @GetMapping("/{id}")
